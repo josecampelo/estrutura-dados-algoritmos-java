@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.teste;
+package br.com.josecampelo.estruturadados.vetor.aulas;
 
 import br.com.josecampelo.estruturadados.vetor.Vetor;
 

@@ -1,8 +1,8 @@
-package br.com.josecampelo.estruturadados.vetor.teste;
+package br.com.josecampelo.estruturadados.vetor.aulas;
 
 import br.com.josecampelo.estruturadados.vetor.Vetor;
 
-public class Aula05 {
+public class Aula06 {
     public static void main(String[] args) {
 
         Vetor vetor = new Vetor(10);
@@ -11,6 +11,6 @@ public class Aula05 {
         vetor.adiciona("elemento 2");
         vetor.adiciona("elemento 3");
 
-        System.out.println(vetor.busca(3));
+        System.out.println(vetor.busca("elemento 4"));
     }
 }

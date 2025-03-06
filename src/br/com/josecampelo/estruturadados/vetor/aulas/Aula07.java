@@ -1,25 +1,22 @@
-package br.com.josecampelo.estruturadados.vetor.teste;
+package br.com.josecampelo.estruturadados.vetor.aulas;
 
 import br.com.josecampelo.estruturadados.vetor.Vetor;
 
-public class Aula09 {
+public class Aula07 {
     public static void main(String[] args) {
+        Vetor vetor = new Vetor(10);
 
-        Vetor vetor = new Vetor(3);
-
-        vetor.adiciona("A");
         vetor.adiciona("B");
         vetor.adiciona("C");
-        vetor.adiciona("D");
         vetor.adiciona("E");
         vetor.adiciona("F");
-        vetor.adiciona("J");
+
         System.out.println(vetor);
 
-        vetor.remove(0);
+        vetor.adiciona(0, "A");
         System.out.println(vetor);
 
-        System.out.println(vetor.remove("Z"));
+        vetor.adiciona(3, "D");
         System.out.println(vetor);
     }
 }
