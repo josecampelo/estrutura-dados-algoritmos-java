@@ -1,7 +1,5 @@
 package br.com.josecampelo.estruturadados.vetor;
 
-import java.util.Arrays;
-
 public class Vetor {
 
     private String[] elementos;
@@ -12,36 +10,13 @@ public class Vetor {
         this.tamanho = 0;
     }
 
-    /*
-    public void adiciona(String elemento) {
-
-        for (int i = 0; i < this.elementos.length; i++) {
-
-            if (this.elementos[i] == null) {
-                this.elementos[i] = elemento;
-                break;
-            }
-        }
-    }
-    */
-
-    /*
-    public void adiciona(String elemento) throws Exception {
-
-        if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elemento;
-            this.tamanho++;
-        } else {
-            throw new Exception("Vetor cheio, não é possível adicionar mais elementos");
-        }
-    }
-    */
-
     public boolean adiciona(String elemento) {
+        this.aumentaCapacidade();
 
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
+
             return true;
         }
 
@@ -54,6 +29,8 @@ public class Vetor {
             throw new IllegalArgumentException("Posição inválida");
         }
 
+        this.aumentaCapacidade();
+
         for (int i = this.tamanho-1; i >= posicao; i--) {
             this.elementos[i+1] = this.elementos[i];
         }
@@ -62,6 +39,19 @@ public class Vetor {
         this.tamanho++;
 
         return true;
+    }
+
+    private void aumentaCapacidade() {
+
+        if (this.tamanho == this.elementos.length) {
+            String[] novosElementos = new String[this.elementos.length * 2];
+
+            for (int i = 0; i < this.tamanho; i++) {
+                novosElementos[i] = this.elementos[i];
+            }
+
+            this.elementos = novosElementos;
+        }
     }
 
     public String busca(int posicao) {
@@ -85,15 +75,12 @@ public class Vetor {
         return -1;
     }
 
-
-
     public int getTamanho() {
         return this.tamanho;
     }
 
     @Override
     public String toString() {
-
         StringBuilder s = new StringBuilder();
         s.append("[");
 
