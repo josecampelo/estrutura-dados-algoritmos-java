@@ -55,9 +55,9 @@ public class VetorExercicio<T> {
         }
     }
 
-    public Object busca(int posicao) {
+    public T busca(int posicao) {
 
-        if (posicao < 0 || posicao > this.tamanho) {
+        if (posicao < 0 || posicao >= this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
@@ -142,5 +142,10 @@ public class VetorExercicio<T> {
         }
 
         return false;
+    }
+
+    // Metodo do Exercicio 04
+    public T obtem(int posicao){
+        return this.busca(posicao);
     }
 }
