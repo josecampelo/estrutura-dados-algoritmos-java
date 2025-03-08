@@ -1,7 +1,5 @@
 package br.com.josecampelo.estruturadados.vetor.aulas;
 
-import br.com.josecampelo.estruturadados.vetor.VetorGenerico;
-
 public class Aula11 {
     public static void main(String[] args) {
         VetorGenerico<Contato> vetorGenerico = new VetorGenerico<>(4);

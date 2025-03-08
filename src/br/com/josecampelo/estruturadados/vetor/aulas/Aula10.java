@@ -1,7 +1,5 @@
 package br.com.josecampelo.estruturadados.vetor.aulas;
 
-import br.com.josecampelo.estruturadados.vetor.VetorObjetos;
-
 public class Aula10 {
     public static void main(String[] args) {
         VetorObjetos vetor = new VetorObjetos(4);
