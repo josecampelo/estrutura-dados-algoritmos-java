@@ -130,4 +130,16 @@ public class VetorExercicio<T> {
     public boolean contem(T elemento) {
         return this.busca(elemento) != -1;
     }
+
+    // Metodo do Exercicio 02
+    public int ultimoIndice(T elemento) {
+        for (int i = this.tamanho-1; i >= 0; i--) {
+
+            if(this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
