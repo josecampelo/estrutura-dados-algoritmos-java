@@ -64,7 +64,7 @@ public class VetorExercicio<T> {
         return this.elementos[posicao];
     }
 
-    public int busca(Object elemento) {
+    public int busca(T elemento) {
 
         for (int i = 0; i < this.tamanho; i++) {
 
@@ -89,18 +89,6 @@ public class VetorExercicio<T> {
         this.tamanho--;
 
         return true;
-    }
-
-    public boolean remove(String elemento) {
-        int posicao = this.busca(elemento);
-
-        if (posicao >= 0) {
-            this.remove(posicao);
-
-            return true;
-        }
-
-        return false;
     }
 
     public int getTamanho() {
@@ -141,5 +129,18 @@ public class VetorExercicio<T> {
         }
 
         return -1;
+    }
+
+    // Metodo do Exercicio 03
+    public boolean remove(T elemento) {
+        int posicao = this.busca(elemento);
+
+        if (posicao >= 0) {
+            this.remove(posicao);
+
+            return true;
+        }
+
+        return false;
     }
 }
