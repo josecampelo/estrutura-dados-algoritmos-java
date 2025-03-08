@@ -145,7 +145,17 @@ public class VetorExercicio<T> {
     }
 
     // Metodo do Exercicio 04
-    public T obtem(int posicao){
+    public T obtem(int posicao) {
         return this.busca(posicao);
+    }
+
+    // Metodo do Exercicio 05
+    public void limpar() {
+
+        for (int i = 0; i < this.tamanho; i++) {
+            this.elementos[i] = null;
+        }
+
+        this.tamanho = 0;
     }
 }
