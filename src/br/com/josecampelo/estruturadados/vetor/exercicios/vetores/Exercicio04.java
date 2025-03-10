@@ -1,6 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.exercicios;
-
-import java.util.ArrayList;
+package br.com.josecampelo.estruturadados.vetor.exercicios.vetores;
 
 public class Exercicio04 {
     public static void main(String[] args) {

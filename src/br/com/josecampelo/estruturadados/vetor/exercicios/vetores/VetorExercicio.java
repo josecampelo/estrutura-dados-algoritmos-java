@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.exercicios;
+package br.com.josecampelo.estruturadados.vetor.exercicios.vetores;
 
 public class VetorExercicio<T> {
     private T[] elementos;

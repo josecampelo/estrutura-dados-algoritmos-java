@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.exercicios;
+package br.com.josecampelo.estruturadados.vetor.exercicios.vetores;
 
 public class Exercicio03 {
     public static void main(String[] args) {
