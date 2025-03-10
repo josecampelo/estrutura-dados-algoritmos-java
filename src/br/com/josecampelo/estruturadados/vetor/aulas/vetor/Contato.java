@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.aulas;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
 
 public class Contato {
 

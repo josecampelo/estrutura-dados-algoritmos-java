@@ -1,17 +1,15 @@
-package br.com.josecampelo.estruturadados.vetor.aulas;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
 
-public class VetorGenerico<T> {
-
-    private T[] elementos;
+public class VetorObjetos {
+    private Object[] elementos;
     private int tamanho;
 
-    @SuppressWarnings("unchecked")
-    public VetorGenerico(int capacidade) {
-        this.elementos = (T[]) new Object[capacidade];
+    public VetorObjetos(int capacidade) {
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(T elemento) {
+    public boolean adiciona(Object elemento) {
         this.aumentaCapacidade();
 
         if (this.tamanho < this.elementos.length) {
@@ -24,7 +22,7 @@ public class VetorGenerico<T> {
         return false;
     }
 
-    public boolean adiciona(int posicao, T elemento) {
+    public boolean adiciona(int posicao, Object elemento) {
 
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
@@ -42,11 +40,10 @@ public class VetorGenerico<T> {
         return true;
     }
 
-    @SuppressWarnings("unchecked")
     private void aumentaCapacidade() {
 
         if (this.tamanho == this.elementos.length) {
-            T[] novosElementos = (T[]) new Object[this.elementos.length * 2];
+            Object[] novosElementos = new Object[this.elementos.length * 2];
 
             for (int i = 0; i < this.tamanho; i++) {
                 novosElementos[i] = this.elementos[i];

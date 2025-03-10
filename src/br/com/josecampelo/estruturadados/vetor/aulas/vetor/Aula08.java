@@ -1,8 +1,7 @@
-package br.com.josecampelo.estruturadados.vetor.aulas;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
 
-public class Aula09 {
+public class Aula08 {
     public static void main(String[] args) {
-
         Vetor vetor = new Vetor(3);
 
         vetor.adiciona("A");
@@ -12,12 +11,7 @@ public class Aula09 {
         vetor.adiciona("E");
         vetor.adiciona("F");
         vetor.adiciona("J");
-        System.out.println(vetor);
 
-        vetor.remove(0);
-        System.out.println(vetor);
-
-        System.out.println(vetor.remove("Z"));
         System.out.println(vetor);
     }
 }
