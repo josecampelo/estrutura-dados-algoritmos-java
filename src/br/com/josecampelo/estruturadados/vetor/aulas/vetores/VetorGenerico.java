@@ -1,16 +1,17 @@
-package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetores;
 
-public class Vetor {
+public class VetorGenerico<T> {
 
-    private String[] elementos;
+    private T[] elementos;
     private int tamanho;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    @SuppressWarnings("unchecked")
+    public VetorGenerico(int capacidade) {
+        this.elementos = (T[]) new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String elemento) {
+    public boolean adiciona(T elemento) {
         this.aumentaCapacidade();
 
         if (this.tamanho < this.elementos.length) {
@@ -23,7 +24,7 @@ public class Vetor {
         return false;
     }
 
-    public boolean adiciona(int posicao, String elemento) {
+    public boolean adiciona(int posicao, T elemento) {
 
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
@@ -41,10 +42,11 @@ public class Vetor {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     private void aumentaCapacidade() {
 
         if (this.tamanho == this.elementos.length) {
-            String[] novosElementos = new String[this.elementos.length * 2];
+            T[] novosElementos = (T[]) new Object[this.elementos.length * 2];
 
             for (int i = 0; i < this.tamanho; i++) {
                 novosElementos[i] = this.elementos[i];
@@ -54,7 +56,7 @@ public class Vetor {
         }
     }
 
-    public String busca(int posicao) {
+    public Object busca(int posicao) {
 
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
@@ -63,7 +65,7 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento) {
+    public int busca(Object elemento) {
 
         for (int i = 0; i < this.tamanho; i++) {
 

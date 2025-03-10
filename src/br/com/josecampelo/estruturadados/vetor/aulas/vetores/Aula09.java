@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetores;
 
 public class Aula09 {
     public static void main(String[] args) {

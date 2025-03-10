@@ -1,17 +1,16 @@
-package br.com.josecampelo.estruturadados.vetor.aulas.vetor;
+package br.com.josecampelo.estruturadados.vetor.aulas.vetores;
 
-public class VetorGenerico<T> {
+public class Vetor {
 
-    private T[] elementos;
+    private String[] elementos;
     private int tamanho;
 
-    @SuppressWarnings("unchecked")
-    public VetorGenerico(int capacidade) {
-        this.elementos = (T[]) new Object[capacidade];
+    public Vetor(int capacidade) {
+        this.elementos = new String[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(T elemento) {
+    public boolean adiciona(String elemento) {
         this.aumentaCapacidade();
 
         if (this.tamanho < this.elementos.length) {
@@ -24,7 +23,7 @@ public class VetorGenerico<T> {
         return false;
     }
 
-    public boolean adiciona(int posicao, T elemento) {
+    public boolean adiciona(int posicao, String elemento) {
 
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
@@ -42,11 +41,10 @@ public class VetorGenerico<T> {
         return true;
     }
 
-    @SuppressWarnings("unchecked")
     private void aumentaCapacidade() {
 
         if (this.tamanho == this.elementos.length) {
-            T[] novosElementos = (T[]) new Object[this.elementos.length * 2];
+            String[] novosElementos = new String[this.elementos.length * 2];
 
             for (int i = 0; i < this.tamanho; i++) {
                 novosElementos[i] = this.elementos[i];
@@ -56,7 +54,7 @@ public class VetorGenerico<T> {
         }
     }
 
-    public Object busca(int posicao) {
+    public String busca(int posicao) {
 
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição inválida");
@@ -65,7 +63,7 @@ public class VetorGenerico<T> {
         return this.elementos[posicao];
     }
 
-    public int busca(Object elemento) {
+    public int busca(String elemento) {
 
         for (int i = 0; i < this.tamanho; i++) {
 
