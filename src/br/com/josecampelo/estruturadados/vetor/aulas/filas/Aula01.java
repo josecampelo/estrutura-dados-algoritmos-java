@@ -5,6 +5,6 @@ public class Aula01 {
         Fila<Integer> fila = new Fila<>();
 
         System.out.println(fila.estaVazia());
-        System.out.println(fila.getTamanho());
+        System.out.println(fila.tamanho());
     }
 }

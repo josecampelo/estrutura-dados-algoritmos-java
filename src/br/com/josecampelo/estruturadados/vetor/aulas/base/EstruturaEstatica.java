@@ -75,7 +75,7 @@ public abstract class EstruturaEstatica<T> {
         }
     }
 
-    public int getTamanho() {
+    public int tamanho() {
         return this.tamanho;
     }
 

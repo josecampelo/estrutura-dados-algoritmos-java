@@ -9,6 +9,6 @@ public class Aula02 {
         }
 
         System.out.println(pilha);
-        System.out.println(pilha.getTamanho());
+        System.out.println(pilha.tamanho());
     }
 }

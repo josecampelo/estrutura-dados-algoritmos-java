@@ -32,7 +32,7 @@ public class Exercicio03 {
     }
 
     private static void limpaPilha(Pilha<Livro> livros) {
-        for (int i = livros.getTamanho() - 1; i >= 0; i--) {
+        for (int i = livros.tamanho() - 1; i >= 0; i--) {
             System.out.println("Removido da pilha -> " + livros.desempilha());
         }
     }
@@ -41,10 +41,10 @@ public class Exercicio03 {
         System.out.println("####### SAIR DO PROGRAMA #######");
 
         if (!livros.estaVazia()) {
-            if (livros.getTamanho() == 1) {
+            if (livros.tamanho() == 1) {
                 System.out.println("Erro: Não é possível sair do programa, pilha ainda possui 1 livro!");
             } else {
-                System.out.println("Erro: Não é possível sair do programa, pilha ainda possui " + livros.getTamanho() + " livros!");
+                System.out.println("Erro: Não é possível sair do programa, pilha ainda possui " + livros.tamanho() + " livros!");
             }
 
             System.out.println("# Processo de limpeza da pilha ativado!");

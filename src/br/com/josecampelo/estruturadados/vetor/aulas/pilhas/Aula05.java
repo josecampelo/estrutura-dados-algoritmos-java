@@ -9,11 +9,11 @@ public class Aula05 {
         }
 
         System.out.println(pilha);
-        System.out.println("Tamanho da pilha: " + pilha.getTamanho());
+        System.out.println("Tamanho da pilha: " + pilha.tamanho());
 
         pilha.desempilha();
 
         System.out.println(pilha);
-        System.out.println("Tamanho da pilha: " + pilha.getTamanho());
+        System.out.println("Tamanho da pilha: " + pilha.tamanho());
     }
 }

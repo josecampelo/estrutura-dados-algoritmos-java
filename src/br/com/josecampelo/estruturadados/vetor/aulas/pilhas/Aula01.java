@@ -5,6 +5,6 @@ public class Aula01 {
         Pilha<Integer> pilha = new Pilha<>();
 
         System.out.println(pilha);
-        System.out.println(pilha.getTamanho());
+        System.out.println(pilha.tamanho());
     }
 }
