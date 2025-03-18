@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.exercicios.filas;
+package br.com.josecampelo.estruturadados.vetor.exercicios.filas.classes;
 
 public class Documento {
 

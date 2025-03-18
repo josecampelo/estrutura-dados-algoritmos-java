@@ -1,6 +1,7 @@
 package br.com.josecampelo.estruturadados.vetor.exercicios.pilhas;
 
 import br.com.josecampelo.estruturadados.vetor.aulas.pilhas.Pilha;
+import br.com.josecampelo.estruturadados.vetor.exercicios.pilhas.classes.Livro;
 
 import java.util.Scanner;
 

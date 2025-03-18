@@ -1,4 +1,4 @@
-package br.com.josecampelo.estruturadados.vetor.exercicios.pilhas;
+package br.com.josecampelo.estruturadados.vetor.exercicios.pilhas.classes;
 
 public class Livro {
     private String nome;

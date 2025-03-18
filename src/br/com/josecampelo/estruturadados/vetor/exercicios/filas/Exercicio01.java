@@ -1,6 +1,7 @@
 package br.com.josecampelo.estruturadados.vetor.exercicios.filas;
 
 import br.com.josecampelo.estruturadados.vetor.aulas.filas.Fila;
+import br.com.josecampelo.estruturadados.vetor.exercicios.filas.classes.Documento;
 
 public class Exercicio01 {
     public static void main(String[] args) {
