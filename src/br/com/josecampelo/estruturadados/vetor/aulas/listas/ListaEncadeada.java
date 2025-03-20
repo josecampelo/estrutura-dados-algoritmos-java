@@ -2,13 +2,16 @@ package br.com.josecampelo.estruturadados.vetor.aulas.listas;
 
 public class ListaEncadeada<T> {
     private No<T> inicio;
-
-    public ListaEncadeada() {
-    }
+    private int tamanho;
 
     public void adiciona(T elemento) {
         No<T> celula = new No<>(elemento);
         this.inicio = celula;
+        this.tamanho++;
+    }
+
+    public int getTamanho() {
+        return this.tamanho;
     }
 
     @Override
