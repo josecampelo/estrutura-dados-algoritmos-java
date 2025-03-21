@@ -5,6 +5,10 @@ public class ListaEncadeada<T> {
     private No<T> ultimo;
     private int tamanho;
 
+    public int getTamanho() {
+        return this.tamanho;
+    }
+
     public void adiciona(T elemento) {
         No<T> celula = new No<>(elemento);
 
@@ -18,8 +22,21 @@ public class ListaEncadeada<T> {
         this.tamanho++;
     }
 
-    public int getTamanho() {
-        return this.tamanho;
+    public void limpa() {
+        No<T> atual = this.inicio;
+        No<T> proximo = this.inicio.getProximo();
+
+        while (atual.getProximo() != null) {
+            atual.setElemento(null);
+            atual.setProximo(null);
+
+            atual = proximo;
+            proximo = atual.getProximo();
+        }
+
+        this.inicio = null;
+        this.ultimo = null;
+        this.tamanho = 0;
     }
 
     @Override
