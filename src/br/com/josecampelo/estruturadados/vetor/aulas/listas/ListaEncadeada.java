@@ -6,10 +6,12 @@ public class ListaEncadeada<T> {
     private int tamanho = 0;
     private final int NAO_ENCONTRADO = -1;
 
+    // Retorna o tamanho atual da lista
     public int getTamanho() {
         return this.tamanho;
     }
 
+    // Adiciona novo nó a lista, se for o primeiro coloca a referência em primeiroNoLista, se não em ultimoNoLista, e depois aumenta o tamanho
     public void adiciona(T elemento) {
         No<T> novoNo = new No<>(elemento);
 
@@ -23,6 +25,7 @@ public class ListaEncadeada<T> {
         this.tamanho++;
     }
 
+    // Percorre todas as referências de nó e coloca os atributos como null, e coloca os atributos da lista como null e 0
     public void limpa() {
         No<T> atual = this.primeiroNoLista;
         No<T> proximo = this.primeiroNoLista.getProximoNo();
@@ -40,6 +43,7 @@ public class ListaEncadeada<T> {
         this.tamanho = 0;
     }
 
+    // Recebe uma posição, se a posição for válida percorre todas as referências dos Nós até a posição fornecida e retorna o Nó
     private No<T> buscaNo(int posicao) {
         if (posicao < 0 || posicao > this.tamanho) {
             throw new IllegalArgumentException("Posição não existe");
@@ -54,10 +58,12 @@ public class ListaEncadeada<T> {
         return noAtual;
     }
 
+    // Recebe uma posição e envia para o metodo buscaNo(), se posição é válida retorna um Nó e o metodo envia o elemento desse nó
     public T buscaPorPosicao(int posicao) {
         return this.buscaNo(posicao).getElementoNo();
     }
 
+    // Recebe um elemento e verifica se existe na lista, se existir retorna a posição do elemento na lista, se não retorna -1
     public int buscaPorElemento(T elemento) {
         No<T> noAtual = this.primeiroNoLista;
         int noPosicaoAtual = 0;
@@ -74,6 +80,7 @@ public class ListaEncadeada<T> {
         return NAO_ENCONTRADO;
     }
 
+    // Retorna todos os elementos da lista de forma organizada dentro de um [x, y]
     @Override
     public String toString() {
         if (this.tamanho == 0) {
