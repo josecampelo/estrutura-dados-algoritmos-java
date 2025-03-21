@@ -1,40 +1,37 @@
 package br.com.josecampelo.estruturadados.vetor.aulas.listas;
 
 public class No<T> {
-    private T elemento;
-    private No<T> proximo;
+    private T elementoNo;
+    private No<T> proximoNo;
 
     public No(T elemento) {
-        this.elemento = elemento;
-        this.proximo = null;
+        this.elementoNo = elemento;
+        this.proximoNo = null;
     }
 
     public No(T elemento, No<T> proximo) {
-        this.elemento = elemento;
-        this.proximo = proximo;
+        this.elementoNo = elemento;
+        this.proximoNo = proximo;
     }
 
-    public T getElemento() {
-        return elemento;
+    public T getElementoNo() {
+        return elementoNo;
     }
 
-    public void setElemento(T elemento) {
-        this.elemento = elemento;
+    public void setElementoNo(T elementoNo) {
+        this.elementoNo = elementoNo;
     }
 
-    public No<T> getProximo() {
-        return proximo;
+    public No<T> getProximoNo() {
+        return proximoNo;
     }
 
-    public void setProximo(No<T> proximo) {
-        this.proximo = proximo;
+    public void setProximoNo(No<T> proximoNo) {
+        this.proximoNo = proximoNo;
     }
 
     @Override
     public String toString() {
-        return "No[" +
-                "elemento=" + elemento +
-                ", proximo=" + proximo +
-                ']';
+        return "[" + elementoNo + "]";
     }
 }
