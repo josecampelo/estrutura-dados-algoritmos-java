@@ -58,6 +58,27 @@ public class ListaEncadeada<T> {
         }
     }
 
+    public T removePrimeiroNo() {
+        if (estaVazia()) {
+            throw new RuntimeException("Não é possível remover, a lista já esta vazia.");
+        }
+
+        No<T> noRemovido = this.primeiroNoLista;
+        No<T> proximoNo = noRemovido.getProximoNo();
+        T elementoRemovido = noRemovido.getElementoNo();
+
+        if (this.tamanho > 1) {
+            this.primeiroNoLista = proximoNo;
+            this.tamanho--;
+            noRemovido.setElementoNo(null);
+            noRemovido.setProximoNo(null);
+        } else {
+            limpa();
+        }
+
+        return elementoRemovido;
+    }
+
     public void limpa() {
         No<T> noAtual = this.primeiroNoLista;
         No<T> proximoNo = this.primeiroNoLista.getProximoNo();
