@@ -25,17 +25,52 @@ public class ListaEncadeada<T> {
         this.tamanho++;
     }
 
+    public void adicionaPrimeiraPosicao(T elemento) {
+        if (!estaVazia()) {
+            No<T> novoNo = new No<>(elemento, this.primeiroNoLista);
+
+            this.primeiroNoLista = novoNo;
+            this.tamanho++;
+        } else {
+            adiciona(elemento);
+        }
+    }
+
+    public void adicionaUltimaPosicao(T elemento) {
+        adiciona(elemento);
+    }
+
+    public void adiciona(int posicao, T elemento) {
+        verificaPosicao(posicao);
+
+        if (!estaVazia()) {
+            if (posicao == 0) {
+                adicionaPrimeiraPosicao(elemento);
+            } else if (posicao == this.tamanho-1) {
+                adicionaUltimaPosicao(elemento);
+            } else {
+                No<T> noAtual = buscaNo(posicao - 1);
+                No<T> novoNo = new No<>(elemento, noAtual.getProximoNo());
+
+                noAtual.setProximoNo(novoNo);
+                tamanho++;
+            }
+        } else {
+            adiciona(elemento);
+        }
+    }
+
     // Percorre todas as referências de nó e coloca os atributos como null, e coloca os atributos da lista como null e 0
     public void limpa() {
-        No<T> atual = this.primeiroNoLista;
-        No<T> proximo = this.primeiroNoLista.getProximoNo();
+        No<T> noAtual = this.primeiroNoLista;
+        No<T> proximoNo = this.primeiroNoLista.getProximoNo();
 
-        while (atual.getProximoNo() != null) {
-            atual.setElementoNo(null);
-            atual.setProximoNo(null);
+        while (noAtual.getProximoNo() != null) {
+            noAtual.setElementoNo(null);
+            noAtual.setProximoNo(null);
 
-            atual = proximo;
-            proximo = atual.getProximoNo();
+            noAtual = proximoNo;
+            proximoNo = noAtual.getProximoNo();
         }
 
         this.primeiroNoLista = null;
@@ -45,10 +80,6 @@ public class ListaEncadeada<T> {
 
     // Recebe uma posição, se a posição for válida percorre todas as referências dos Nós até a posição fornecida e retorna o Nó
     private No<T> buscaNo(int posicao) {
-        if (posicao < 0 || posicao > this.tamanho) {
-            throw new IllegalArgumentException("Posição não existe");
-        }
-
         No<T> noAtual = this.primeiroNoLista;
 
         for (int i = 0; i < posicao; i++) {
@@ -58,8 +89,9 @@ public class ListaEncadeada<T> {
         return noAtual;
     }
 
-    // Recebe uma posição e envia para o metodo buscaNo(), se posição é válida retorna um Nó e o metodo envia o elemento desse nó
+    // Recebe uma posição e envia para o metodo buscaNo() que retorna um Nó e o metodo retorna o elemento no Nó
     public T buscaPorPosicao(int posicao) {
+        verificaPosicao(posicao);
         return this.buscaNo(posicao).getElementoNo();
     }
 
@@ -80,6 +112,16 @@ public class ListaEncadeada<T> {
         return NAO_ENCONTRADO;
     }
 
+    public boolean estaVazia() {
+        return this.tamanho == 0;
+    }
+
+    public void verificaPosicao(int posicao) {
+        if (posicao < 0 || posicao >= this.tamanho) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+    }
+
     // Retorna todos os elementos da lista de forma organizada dentro de um [x, y]
     @Override
     public String toString() {
@@ -90,8 +132,8 @@ public class ListaEncadeada<T> {
         StringBuilder builder = new StringBuilder("[");
         No<T> atual = this.primeiroNoLista;
 
-        for (int i = 1; i <= this.tamanho; i++) {
-            if (i < this.tamanho) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (i < this.tamanho-1) {
                 builder.append(atual.getElementoNo()).append(", ");
             } else {
                 builder.append(atual.getElementoNo()).append("]");
