@@ -64,19 +64,21 @@ public class ListaEncadeada<T> {
         }
 
         No<T> noRemovido = this.primeiroNoLista;
-        No<T> proximoNo = noRemovido.getProximoNo();
-        T elementoRemovido = noRemovido.getElementoNo();
+        T elementoNoRemovido = noRemovido.getElementoNo();
 
-        if (this.tamanho > 1) {
-            this.primeiroNoLista = proximoNo;
-            this.tamanho--;
-            noRemovido.setElementoNo(null);
-            noRemovido.setProximoNo(null);
+        if (this.tamanho == 1) {
+            this.primeiroNoLista = null;
+            this.ultimoNoLista = null;
+            this.tamanho = 0;
         } else {
-            limpa();
+            this.primeiroNoLista = noRemovido.getProximoNo();
+            this.tamanho--;
         }
 
-        return elementoRemovido;
+        noRemovido.setElementoNo(null);
+        noRemovido.setProximoNo(null);
+
+        return elementoNoRemovido;
     }
 
     public void limpa() {
