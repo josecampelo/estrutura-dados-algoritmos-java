@@ -60,7 +60,7 @@ public class ListaEncadeada<T> {
 
     public T removePrimeiroNo() {
         if (estaVazia()) {
-            throw new RuntimeException("Não é possível remover, a lista já esta vazia.");
+            throw new RuntimeException("Não foi possível remover o primeiro elemento, a lista está vazia");
         }
 
         No<T> noRemovido = this.primeiroNoLista;
@@ -69,14 +69,42 @@ public class ListaEncadeada<T> {
         if (this.tamanho == 1) {
             this.primeiroNoLista = null;
             this.ultimoNoLista = null;
-            this.tamanho = 0;
         } else {
             this.primeiroNoLista = noRemovido.getProximoNo();
-            this.tamanho--;
         }
 
         noRemovido.setElementoNo(null);
         noRemovido.setProximoNo(null);
+        this.tamanho--;
+
+        return elementoNoRemovido;
+    }
+
+    public T removeUltimoNo() {
+        if (estaVazia()) {
+            throw new RuntimeException("Não foi possível remover o último elemento, a lista está vazia");
+        }
+
+        No<T> noRemovido = this.ultimoNoLista;
+        T elementoNoRemovido = noRemovido.getElementoNo();
+
+        if (this.tamanho == 1) {
+            this.primeiroNoLista = null;
+            this.ultimoNoLista = null;
+        } else {
+            No<T> penultimoNo = this.primeiroNoLista;
+
+            while (penultimoNo.getProximoNo() != this.ultimoNoLista) {
+                penultimoNo = penultimoNo.getProximoNo();
+            }
+
+            penultimoNo.setProximoNo(null);
+            this.ultimoNoLista = penultimoNo;
+        }
+
+        noRemovido.setElementoNo(null);
+        noRemovido.setProximoNo(null);
+        this.tamanho--;
 
         return elementoNoRemovido;
     }
